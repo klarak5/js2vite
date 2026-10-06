@@ -1,19 +1,22 @@
 console.log("Katalog warsztatów uruchomiony");
 
-let title = "Pierwsza strona";
+let title = "Kurs";
 let seats = 12;
 let enrolled = 12;
 
-if (enrolled == 0) {
-  title = "Kurs otwarty";
-} else if (enrolled < 12) {
-  title = "Kurs popularny";
-} else if (enrolled == 12) {
-  title = "Kurs zamkniety";
-} else {
-  title = "Kurs niedostepny";
-  seats = 0;
-  enrolled = 0;
+function showKursData() {
+  console.log(`${title}: wolne ${seats - enrolled} z ${seats}`);
 }
 
-console.log(`${title}: wolne ${seats - enrolled} z ${seats}`);
+function getFreeSeats() {
+  return seats - enrolled;
+}
+
+function setFreeSeats(freeSeats) {
+  enrolled = seats - freeSeats;
+}
+
+showKursData();
+console.log(getFreeSeats());
+setFreeSeats(4);
+console.log(getFreeSeats());
